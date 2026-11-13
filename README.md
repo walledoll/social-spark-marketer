@@ -1,14 +1,24 @@
-# Welcome to your Lovable project
+# Social Spark Marketer
+
+#DDE1E1 #196C7F #285055 #C1D0D3 main colors
+need to create ai marketer where user can generate posts plan schedule connect platforms to post them
+form to add info about company
+three screens
+page where user can interact with ai marketer
+admin panel
+  stack react shadcn ui
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://social-spark-marketer.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/6f8315c0-de51-4353-a1b3-834b3df864dd).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +30,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
