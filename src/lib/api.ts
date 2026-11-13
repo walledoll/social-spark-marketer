@@ -15,19 +15,19 @@ export type TaskItem = { id: number; prompt: string; interval_minutes: number; a
 export type Operator = { telegram_id: number; name: string };
 export type AuditItem = { id: number; action: string; actor: string; created_at: string };
 
-const BASE = (import.meta.env.VITE_API_URL as string | undefined) ?? "";
+const BASE = (import.meta.env["VITE_API_URL"] as string | undefined) ?? "";
 const A = "/api/admin";
 
 export function headers(): Record<string, string> {
   const h: Record<string, string> = { "Content-Type": "application/json" };
   const t = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-  if (t) h.Authorization = `Bearer ${t}`;
+  if (t) h["Authorization"] = `Bearer ${t}`;
   return h;
 }
 
 async function req<T = unknown>(method: string, path: string, body?: unknown, extra?: Record<string, string>): Promise<T> {
   if (!BASE) return mockReq(method, path, body, extra) as Promise<T>;
-  const res = await fetch(BASE + path, { method, headers: { ...headers(), ...extra }, body: body ? JSON.stringify(body) : undefined });
+  const res = await fetch(BASE + path, { method, headers: { ...headers(), ...extra }, ...(body ? { body: JSON.stringify(body) } : {}) });
   if (!res.ok) throw new Error((await res.json().catch(() => ({}))).detail ?? `HTTP ${res.status}`);
   return res.json();
 }

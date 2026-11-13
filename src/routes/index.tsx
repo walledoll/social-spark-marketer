@@ -35,11 +35,11 @@ function CompanyPage() {
   const [id, setId] = useState<number | null>(null);
   const [saving, setSaving] = useState(false);
   const nav = useNavigate();
-  useEffect(() => { api.companies().then((c) => { if (c[0]) { const { id, ...rest } = c[0]; setId(id); setForm({ ...empty, ...rest }); } }); }, []);
+  useEffect(() => { void api.companies().then((c) => { if (c[0]) { const { id, ...rest } = c[0]; setId(id); setForm({ ...empty, ...rest }); } }); }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!form.name.trim()) return toast.error("Company name is required");
+    if (!form.name.trim()) { toast.error("Company name is required"); return; }
     setSaving(true);
     try {
       if (id) await api.updateCompany(id, form); else setId((await api.createCompany(form)).id);

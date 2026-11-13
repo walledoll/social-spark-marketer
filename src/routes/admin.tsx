@@ -36,7 +36,7 @@ function Admin() {
     <div className="p-6 md:p-10 space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div><h1 className="text-3xl font-semibold">Admin panel</h1><p className="text-muted-foreground">Everything behind your AI marketer.</p></div>
-        <Select value={cid ? String(cid) : undefined} onValueChange={(x) => setCid(+x)}>
+        <Select value={cid ? String(cid) : ""} onValueChange={(x) => setCid(+x)}>
           <SelectTrigger className="w-60 bg-card"><SelectValue placeholder="Select company" /></SelectTrigger>
           <SelectContent>{companies.map((c) => <SelectItem key={c.id} value={String(c.id)}>{c.name}</SelectItem>)}</SelectContent>
         </Select>
